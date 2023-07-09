@@ -1,0 +1,109 @@
+/* General styling for all elements: remove default margin, padding, and set box-sizing to border-box. */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sets global styling for body, including font family, font smoothing and background color. */
+body {
+  margin: 0;
+   /*a custom font stack including system fonts*/
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+    'Helvetica Neue', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0f0f22;
+}
+
+/* Styles for the code element. Defines a font-family stack for code elements. */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Styles for the .container class: Sets width, min-height, relative positioning and centering it horizontally. */
+.container {
+  width:95%;
+  min-height: 100vh;
+  position: relative;
+  margin:0 auto;
+}
+
+/* Sets up style for h1 element inside .container */
+.container h1 {
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Styles for the .media-container class: Sets up a grid layout with automatic columns, a grid-gap, and horizontal centering. */
+.container .media-container {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  margin: 20px auto;
+}
+
+/* Styles for the .media class inside .media-container: Sets up dimension, border, box-shadow, hidden overflow and cursor styling. */
+.container .media-container .media {
+  height: 220px;
+  width: 100%;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  overflow:hidden;
+  cursor: pointer;
+}
+
+/* Sets up style for video elements inside .media class. They will cover entire container and show a scaling-up transition on hover */
+.container .media-container .media :is(video) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.3s linear;
+}
+
+/* Setup styles for video elements inside .media class when hovered over. */
+.container .media-container .media:hover :is(video){
+  transform: scale(1.1);
+}
+
+/* Styles for the popup media view: positioned absolutely, given high z-index and a semi-transparent background. */
+.container .popup-media {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles for video elements inside .popup-media: positioned absolutely, given dimension properties, fitting styles and bordered. */
+.container .popup-media :is(video) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:block;
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  border: 3px solid #fff;
+}
+
+/* Styles for the popup close button */
+.container .popup-media span {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 50px;
+  font-weight: bolder;
+  z-index: 100;
+  cursor: pointer;
+  color: #fff;
+  user-select:none;
+}
